@@ -1,0 +1,93 @@
+def convert_minutes_to_hours_and_minutes(total_minutes):
+    hours = total_minutes // 60 
+    minutes = total_minutes % 60
+    return hours, minutes
+try:
+    total_minutes = int(input("Введите количество минут: "))
+    if total_minutes < 0:
+        print("Пожалуйста, введите неотрицательное число.")
+    else:
+        hours, minutes = convert_minutes_to_hours_and_minutes(total_minutes)
+        print(f"{hours} час(ов), {minutes} минут(ы)")
+except ValueError:
+    print("Пожалуйста, введите целое число.")
+a = int(input("Введите минимальное количество часов сна: "))
+b = int(input("Введите максимальное количество часов сна: "))
+h = int(input("Введите количество часов сна Ани: "))
+if h < a:
+    print("Недосып")
+elif h > b:
+    print("Пересып")
+else:
+    print("Это нормально")
+import math
+
+a = float(input("Введите длину стороны a: "))
+b = float(input("Введите длину стороны b: "))
+c = float(input("Введите длину стороны c: "))
+
+if a + b > c and a + c > b and b + c > a:
+    p = (a + b + c) / 2
+    area = math.sqrt(p * (p - a) * (p - b) * (p - c))
+    print(f"Площадь треугольника: {area:.2f}")
+else:
+    print("Треугольник с такими сторонами не существует.")
+def calculate_area():
+    print("Выберите тип комнаты:")
+    print("1. Треугольная")
+    print("2. Прямоугольная")
+    print("3. Круглая")
+    
+    choice = input("Введите номер типа комнаты (1/2/3): ")
+    
+    if choice == '1':
+        a = float(input("Введите длину стороны a: "))
+        b = float(input("Введите длину стороны b: "))
+        c = float(input("Введите длину стороны c: "))
+        
+        if a + b > c and a + c > b and b + c > a:
+            p = (a + b + c) / 2
+            area = (p * (p - a) * (p - b) * (p - c)) ** 0.5
+            print(f"Площадь треугольной комнаты: {area:.2f}")
+        else:
+            print("Треугольник с такими сторонами не существует.")
+    
+    elif choice == '2':
+        length = float(input("Введите длину прямоугольной комнаты: "))
+        width = float(input("Введите ширину прямоугольной комнаты: "))
+        area = length * width
+        print(f"Площадь прямоугольной комнаты: {area:.2f}")
+    
+    elif choice == '3':
+        radius = float(input("Введите радиус круглой комнаты: "))
+        area = 3.14 * radius ** 2
+        print(f"Площадь круглой комнаты: {area:.2f}")
+    
+    else:
+        print("Неверный выбор. Пожалуйста, выберите 1, 2 или 3.")
+
+calculate_area()
+def correct_programmer_word(n):
+    if n % 10 == 1 and n % 100 != 11:
+        return "программист"
+    elif n % 10 in [2, 3, 4] and n % 100 not in [12, 13, 14]:
+        return "программиста"
+    else:
+        return "программистов"
+
+n = int(input("Введите количество программистов: "))
+print(f"{n} {correct_programmer_word(n)}")
+def is_lucky_ticket(ticket_number):
+    ticket_str = str(ticket_number)
+    if len(ticket_str) != 6:
+        return False
+    first_half_sum = sum(int(digit) for digit in ticket_str[:3])
+    second_half_sum = sum(int(digit) for digit in ticket_str[3:])
+    return first_half_sum == second_half_sum
+
+ticket_number = input("Введите номер билета (6 цифр): ")
+
+if is_lucky_ticket(ticket_number):
+    print("Билет счастливый!")
+else:
+    print("Билет не счастливый.")
