@@ -1,0 +1,54 @@
+my_spisok = [13, 'hi', 0, -44, 999, '001 01 11']
+print(my_spisok)
+my_spisok.remove(0)
+print(my_spisok)
+my_spisok.remove(999)
+print(my_spisok)
+my_spisok = [13, 'hi', 0, -44, 999, '001 01 11']
+print(my_spisok)
+my_spisok.pop(0)
+print(my_spisok)
+my_spisok.pop(2)
+print(my_spisok)
+my_spisok = [13, 'hi', 0, -44, 999, '001 01 11']
+print(my_spisok)
+my_spisok.clear()
+print(my_spisok)
+my_spisok = [13, 'hi', 0, -44, 999, '001 01 11']
+print(my_spisok)
+del my_spisok[2]
+print(my_spisok)
+del my_spisok[0:3]
+print(my_spisok)
+
+numb = 10
+say = 'Hello!'
+list1 = [10, 20, 30, 40, 50]
+my_list = []
+print(my_list)
+my_list.append(numb)
+print(my_list)
+my_list.append(say)
+print(my_list)
+my_list.append(list1)
+print(my_list)
+
+my_list = ['начало', 'конец']
+print(my_list)
+my_list.insert(1, 'середина')
+print(my_list)
+
+stroki = ['str1', 'str2', 1]
+numbers = [2, 'str3', 3]
+print('До обмена: ')
+print(stroki)
+print(numbers)
+
+stroki.remove(1)
+numbers.append(1)
+
+numbers.remove('str3')
+stroki.append('str3')
+print('После обмена: ')
+print(stroki)
+print(numbers)
