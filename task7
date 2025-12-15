@@ -1,0 +1,95 @@
+table = [
+    ['folder', 'coursework.doc', 'folder', 'pict.png', 'data.accdb'],
+    ['icon.ico', 'script.js', 'index.html', 'style.ess', 'prog-py'],
+    ['my song.mp3', 'anapa-2003.jpg', 'cs 1.6.exe', 'folder', 'cheat.txt'],
+    ['notes.txt', 'main.py', 'work.pdf', 'cartoon.mp4', 'array.py'],
+    ['project.psd', 'cyclc.py', 'folder', 'cycle.js', 'turtle.py']
+]
+
+print("Исходный двумерный массив:")
+for row in table:
+    print(row)
+
+for i in range(len(table)):
+    table[i] = [item if item != 'folder' else None for item in table[i]]
+    for j in range(len(table[i])):
+        if table[i][j] == 'data.accdb':
+            table[i][j] = 'data.sql'
+
+table = [[item for item in row if item is not None] for row in table]
+
+print("\nМассив после удаления папок и замены data.accdb на data.sql:")
+for row in table:
+    print(row)
+
+ru_files = []
+for row in table:
+    for item in row:
+        if isinstance(item, str) and item.endswith('.ru'):
+            ru_files.append(item)
+
+print("\nЭлементы с расширением .ru:")
+print(ru_files)
+
+js_files_new = []
+for row in table:
+    for j in range(len(row)):
+        if isinstance(row[j], str) and row[j].endswith('.js'):
+            js_files_new.append('new-' + row[j])
+
+print("\nЭлементы с расширением .js с добавлением 'new-':")
+print(js_files_new)
+
+word_numb = ["ноль", "один", "два", "три", "четыре", "пять",
+             "шесть", "семь", "восемь", "девять"]
+
+p = int(input("Введите число от 0 до 9: "))
+
+if 0 <= p <= 9:
+    for i in range(p + 1):
+        print(word_numb[i])
+else:
+    print("Введите число от 0 до 9!")
+
+
+bin_sy = ['11011111', '11011101', '11000111', '11011100', '11011110']
+decimal_numbers = []
+
+for binary in bin_sy:
+    decimal = int(binary, 2)
+    decimal_numbers.append(decimal)
+    print(decimal)
+
+max_number = max(decimal_numbers)
+min_number = min(decimal_numbers)
+
+print("Максимальное число:", max_number)
+print("Минимальное число:", min_number)
+
+matrix = [
+    [-446, 281, -80],
+    ['A', 465, 432],
+    [-122, 13, 'erron'],
+    [8]
+]
+
+for i, row in enumerate(matrix):
+    for j, element in enumerate(row):
+        if isinstance(element, str):
+            matrix[i][j] = len(element)
+
+print("Изменённая матрица:")
+for row in matrix:
+    print(row)
+
+total_sum = sum(sum(row) for row in matrix)
+print("Сумма всех элементов матрицы:", total_sum)
+
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+diagonal_sum = matrix[0][2] + matrix[1][1] + matrix[2][0]
+print(diagonal_sum)
