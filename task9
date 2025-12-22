@@ -1,0 +1,59 @@
+notebook = {}
+
+def add_note():
+    global notebook
+    title = input("Введите название заметки: ")
+    text = input("Введите текст заметки: ")
+    notebook[title] = text
+    print("Заметка добавлена.")
+
+def read_note():
+    global notebook
+    if not notebook:
+        print("Заметок нет.")
+        return
+    print("Список заметок:")
+    for title in notebook.keys():
+        print(title)
+    title = input("Введите название заметки для чтения: ")
+    if title in notebook:
+        print(f"Текст заметки: {notebook[title]}")
+    else:
+        print("Такой заметки нет.")
+
+def delete_note():
+    global notebook
+    if not notebook:
+        print("Заметок нет.")
+        return
+    print("Список заметок:")
+    for title in notebook.keys():
+        print(title)
+    title = input("Введите название заметки для удаления: ")
+    if title in notebook:
+        del notebook[title]
+        print("Заметка удалена.")
+    else:
+        print("Такой заметки нет.")
+
+def menu():
+    while True:
+        print("\nМеню:")
+        print("1. Добавить заметку")
+        print("2. Прочитать заметку")
+        print("3. Удалить заметку")
+        print("4. Выход")
+        choice = input("Выберите действие (1/2/3/4): ")
+        if choice == '1':
+            add_note()
+        elif choice == '2':
+            read_note()
+        elif choice == '3':
+            delete_note()
+        elif choice == '4':
+            print("Выход из программы.")
+            break
+        else:
+            print("Некорректный выбор, попробуйте снова.")
+
+menu()
